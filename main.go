@@ -10,7 +10,7 @@ import (
 
 func main() {
 	token, exist := os.LookupEnv("TRANSLIT_TOKEN")
-	if !exist {
+	if !exist || len(token) < 10 {
 		log.Fatalln("no env var | TRANSLIT_TOKEN")
 	}
 	bot, err := tg.NewBotAPI(token)
